@@ -1,0 +1,33 @@
+#portrait-fig > img {
+    max-width: 512px;
+    max-height: 512px;
+}
+
+#scarlet-tile {
+    background-image: url("../images/scarlet.png");
+    background-color: black;
+}
+
+#fractran-tile {
+
+}
+
+.proj-tile {
+    transition: all 0.5s;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-radius: 10px;
+}
+
+.proj-tile > div {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+#proj-hero-body:hover {
+    background-color: rgba(100, 100, 100, 0.12);
+    margin-left: 60px;
+    margin-right: 60px;
+}

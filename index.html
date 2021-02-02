@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Untitled</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+            your experience.
+            </p>
+        <![endif]-->
+        <section class="section">
+            <div class="columns">
+                <div class="column is-3">
+                    <div class="content is-medium">
+                        <h1 class="title">Basic Combat Calculator</h1>
+                        <p>
+                            This page helps you calculate survival probabilities and outcomes for combat in
+                            <span class="is-italic">Fire Emblem</span> games.
+                            <ul>
+                                <li>The reason the specific game matters is because different games have different ways
+                                    of silently modifying hit rates.</li>
+                                <li>Even in the full table, outcomes with a less than 0.1% chance of happening are
+                                excluded.</li>
+                                <li><span class="is-italic">Genealogy of the Holy War</span> and
+                                    <span class="is-italic">Thracia 776</span> calculate critical hits differently from
+        other FE games, so this calculator doesn't accurately report critical hit damage for those games. (It would
+        require knowing the attack and defense of the units, which is overkill for a simple combat calculator.)</li>
+                            <li>"Brave", in this context, means hitting twice outside of the normal combat order. This
+                                is the effect of the namesake brave weapons in many games, the Amiti, and many others.</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="column is-8">
+                    <div class="columns">
+                        <div class="column">
+                            <h1 class="is-size-2 has-text-centered">Attacker</h1>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="atk-hp" class="label">HP</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="number" class="form-control" id="atk-hp" value="20">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="atk-dmg" class="label">Damage</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="number" class="form-control" id="atk-dmg" value="20">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="atk-hit" class="label">Hit</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="number" class="form-control" id="atk-hit" value="90">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="atk-crit" class="label">Crit</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="number" class="form-control" id="atk-crit" value="10">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="atk-brave" class="label">Brave?</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="checkbox" id="atk-brave">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-3">
+                            <div class="columns is-centered">
+                                <div class="column">
+                                    <div class="select">
+                                        <select id="game-select">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column border-start">
+                            <h1 class="is-size-2 has-text-centered">Defender</h1>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="def-hp" class="label">HP</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="number" class="form-control" id="def-hp" value="20">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="def-dmg" class="label">Damage</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="number" class="form-control" id="def-dmg" value="20">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="def-hit" class="label">Hit</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="number" class="form-control" id="def-hit" value="90">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="def-crit" class="label">Crit</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="number" class="form-control" id="def-crit" value="10">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field is-horizontal">
+                                <div class="field-label is-normal">
+                                    <label for="def-brave" class="label">Brave?</label>
+                                </div>
+                                <div class="field-body">
+                                    <div class="control">
+                                        <input type="checkbox" id="def-brave">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column is-narrow">
+                            <div class="field">
+                                <div class="field-body">
+                                    <div class="control px-3">
+                                        <input class="form-check-input" type="radio" name="speed-radio" id="speed-even" value="Even" checked>
+                                    </div>
+                                    <div class="field-label is-normal">
+                                        <label class="label" for="speed-eve">
+                                            Neither side doubles
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-narrow">
+                            <div class="field">
+                                <div class="field-body">
+                                    <div class="control px-3">
+                                        <input class="form-check-input" type="radio" name="speed-radio" id="speed-atk" value="AtkDoubles">
+                                    </div>
+                                    <div class="field-label is-normal">
+                                        <label class="label" for="speed-atk">
+                                            Attacker doubles
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-narrow">
+                            <div class="field">
+                                <div class="field-body">
+                                    <div class="control px-3">
+                                        <input class="form-check-input" type="radio" name="speed-radio" id="speed-def" value="DefDoubles">
+                                    </div>
+                                    <div class="field-label is-normal">
+                                        <label class="label" for="speed-def">
+                                            Defender doubles
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <button type="button" class="button is-primary" id="calc-btn">Calculate!</button>
+                        </div>
+                    </div>
+                    <!-- Main container -->
+                    <div class="columns">
+                        <div class="column">
+                        <nav class="level">
+                            <!-- Left side -->
+                            <div class="level-left">
+                                <p class="level-item is-size-4">Attacker survives:&nbsp;<span id="atk-prob" class="survival-prob is-size-3"></span></p>
+                            </div>
+
+                            <!-- Right side -->
+                            <div class="level-right">
+                                <p class="level-item is-size-4">Defender survives:&nbsp;<span id="def-prob" class="survival-prob is-size-3"></span></p>
+                            </div>
+                        </nav>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <button id="outcomes-toggle" class="button is-primary">Show full outcomes and probabilities</button>
+                            <aside class="menu">
+                                <ul class="menu-list">
+                                    <div id="full-outcomes">
+                                    </div>
+                                </ul>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-1">
+
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    Created by <a href="nicholas-miklaucic.com">Nicholas Miklaucic</a>
+                </p>
+            </div>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+        <script src="index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+    @font-face{
+        font-family:"Applied Sans W04 Regular";
+        src:url("Fonts/4763074c-ad28-4a41-8d1d-01b3b1fb6934.woff2") format("woff2"),url("Fonts/d749f62d-5779-4e44-ac50-e8f76fade030.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Applied Sans W04 Medium";
+        src:url("Fonts/661734ac-3b18-4263-b281-5cf94dbc7d57.woff2") format("woff2"),url("Fonts/6396259a-5e78-40ab-901c-a21b6a3061d9.woff") format("woff");
+    }
+    @font-face{
+        font-family:"Applied Sans W04 Bold";
+        src:url("Fonts/0fe63295-7efe-46c7-8bd8-beb5b3f72207.woff2") format("woff2"),url("Fonts/66d4941b-e533-4bdf-995c-be9ef2b6c60f.woff") format("woff");
+    }
