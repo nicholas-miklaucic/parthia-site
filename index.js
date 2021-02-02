@@ -101,7 +101,7 @@ $("#calc-btn").click(function() {
     });
     console.log(data);
     var xhr = new XMLHttpRequest();
-    var url = "http://161.35.123.18:3030/calc/";
+    var url = "https://161.35.123.18:3030/calc/";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () {
