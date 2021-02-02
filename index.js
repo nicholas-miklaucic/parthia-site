@@ -101,7 +101,7 @@ $("#calc-btn").click(function() {
     });
     console.log(data);
     var xhr = new XMLHttpRequest();
-    var url = "https://161.35.123.18:3030/calc/";
+    var url = "https://parthia.nicholas-miklaucic.com/calc/";
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.onreadystatechange = function () {
